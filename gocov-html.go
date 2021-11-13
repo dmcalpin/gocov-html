@@ -22,17 +22,19 @@ package main
 
 import (
 	"flag"
-	"github.com/matm/gocov-html/cov"
 	"io"
 	"log"
 	"os"
+
+	"github.com/matm/gocov-html/cov"
 )
 
 func main() {
 	var r io.Reader
 	log.SetFlags(0)
 
-	var s = flag.String("s", "", "path to custom CSS file")
+	s := flag.String("s", "", "path to custom CSS file")
+	summary := flag.Bool("summary", false, "show only the overview sections, no code")
 	flag.Parse()
 
 	switch flag.NArg() {
@@ -47,7 +49,7 @@ func main() {
 		log.Fatalf("Usage: %s data.json\n", os.Args[0])
 	}
 
-	if err := cov.HTMLReportCoverage(r, *s); err != nil {
+	if err := cov.HTMLReportCoverage(r, *s, *summary); err != nil {
 		log.Fatal(err)
 	}
 }
