@@ -100,6 +100,7 @@ const (
             }
             table tr:last-child td {
                 font-weight: bold;
+                background-color: #e0e0e0;
             }
             .functitle, .funcname { 
                 text-align: center; 
@@ -114,6 +115,11 @@ const (
                 margin-bottom: 20px;
                 padding: 2px 5px 5px;
                 background-color: #e0ebf5;
+            }
+            .subtotal {
+            }
+            .subtotal td {
+                background-color: #f0f0f0;
             }
             table.listing {
                 margin-left: 10px;

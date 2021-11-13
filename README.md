@@ -28,3 +28,13 @@ flag to use a custom stylesheet:
 ```
 $ gocov test net/http | gocov-html -s mystyle.css > http.html
 ```
+
+To properly report subpackage totals in the overview section, include a `-prefix` flag. This is usually your repository name.
+```
+$ gocov test ./... | gocov-html -prefix=github.com/username/repo/ > mypackage.html
+```
+
+For large reports, you may wish to forego printing the code itself. Use the `-summary=true` flag to omit function code in the report.
+```
+$ gocov test net/http | gocov-html -summary=true > http.html
+```

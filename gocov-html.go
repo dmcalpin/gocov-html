@@ -35,6 +35,7 @@ func main() {
 
 	s := flag.String("s", "", "path to custom CSS file")
 	summary := flag.Bool("summary", false, "show only the overview sections, no code")
+	pkgPrefix := flag.String("prefix", "", "module prefix, such as repo name. used to make it easier to group packages")
 	flag.Parse()
 
 	switch flag.NArg() {
@@ -49,7 +50,7 @@ func main() {
 		log.Fatalf("Usage: %s data.json\n", os.Args[0])
 	}
 
-	if err := cov.HTMLReportCoverage(r, *s, *summary); err != nil {
+	if err := cov.HTMLReportCoverage(r, *s, *summary, *pkgPrefix); err != nil {
 		log.Fatal(err)
 	}
 }
